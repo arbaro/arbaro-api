@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 import * as express from "express";
 import * as mongoose from "mongoose";
 import companyRoute from "./routes/company";
+import * as cors from "cors";
 
 dotenv.config();
 
@@ -15,4 +16,5 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, error =>
   console.log(error || "Successfully connected to Mongoose.")
 );
 
+app.use(cors());
 app.use("/company", companyRoute);
