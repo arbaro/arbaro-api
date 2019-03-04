@@ -3,6 +3,10 @@ import { ClaimTime } from "../../interfaces";
 
 const router = express.Router();
 
+/**
+ * Represents a book.
+ * @constructor
+ */
 router.get("/:companyName/workEntries", async (req, res) => {
   const { companyName } = req.params;
 

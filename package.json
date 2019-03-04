@@ -4,7 +4,7 @@
   "main": "dist/app.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && typedoc --out docs src/",
     "start": "node dist/app"
   },
   "dependencies": {
@@ -17,5 +17,8 @@
     "mongoose": "^5.4.15",
     "typegoose": "^5.6.0",
     "typescript": "^3.3.3333"
+  },
+  "devDependencies": {
+    "typedoc": "^0.14.2"
   }
 }
