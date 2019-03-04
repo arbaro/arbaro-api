@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    // "declaration": true,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    // "strict": true,
+    // "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
+    // "noFallthroughCasesInSwitch": true,
+    "allowJs": true
+    // "moduleResolution": "node"
+    // "esModuleInterop": true
+  },
+  "include": ["./src/**/*"]
+}
