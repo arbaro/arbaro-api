@@ -5,11 +5,40 @@ export class ClaimTime extends Typegoose {
   worker: string;
 
   @prop()
-  dechours: string;
+  dechours: number;
 
   @prop()
   notes: string;
 
   @prop()
   transactionId: string;
+
+  @prop()
+  role: string;
+
+  @prop()
+  reward: {
+    amount: number;
+    symbol: string;
+  };
+
+  @prop()
+  blockTime: Date;
+}
+
+export class Org extends Typegoose {
+  @prop()
+  owner: string;
+
+  @prop()
+  tokensym: string;
+
+  @prop()
+  tokencon: string;
+
+  @prop()
+  friendlyname: string;
+
+  @prop()
+  blockTime: Date;
 }
