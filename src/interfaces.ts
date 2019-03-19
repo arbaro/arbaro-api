@@ -23,7 +23,7 @@ export class ClaimTime extends Typegoose {
   };
 
   @prop()
-  blockTime: Date;
+  blockTime: string;
 }
 
 export class Org extends Typegoose {
@@ -40,5 +40,5 @@ export class Org extends Typegoose {
   friendlyname: string;
 
   @prop()
-  blockTime: Date;
+  blockTime: string;
 }
