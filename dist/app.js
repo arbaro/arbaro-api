@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv = require("dotenv");
+const express = require("express");
+const mongoose = require("mongoose");
+const company_1 = require("./routes/company");
+const companies_1 = require("./routes/companies");
+const cors = require("cors");
+dotenv.config();
+const app = express();
+const port = process.env.PORT || 3001;
+const mongoUri = process.env.MONGO_URI;
+app.listen(port, () => console.log(`Listening on port ${port}`));
+mongoose.connect(mongoUri, { useNewUrlParser: true }, error => console.log(error || "Successfully connected to Mongoose."));
+app.use(cors());
+app.use("/company", company_1.default);
+app.use("/companies", companies_1.default);

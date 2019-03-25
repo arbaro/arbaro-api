@@ -2,7 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "dist/app.js",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "build": "tsc && typedoc --out docs src/",
     "start": "node dist/app"
