@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const company_1 = require("./routes/company");
 const companies_1 = require("./routes/companies");
+const profile_1 = require("./routes/profile");
 const cors = require("cors");
 dotenv.config();
 const app = express();
@@ -15,3 +16,4 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, error => console.log(error
 app.use(cors());
 app.use("/company", company_1.default);
 app.use("/companies", companies_1.default);
+app.use("/profile", profile_1.default);

@@ -19,7 +19,7 @@ __decorate([
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", Number)
-], ClaimTime.prototype, "dechours", void 0);
+], ClaimTime.prototype, "minutes", void 0);
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", String)
@@ -31,7 +31,7 @@ __decorate([
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", String)
-], ClaimTime.prototype, "role", void 0);
+], ClaimTime.prototype, "org", void 0);
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", Object)
@@ -64,3 +64,18 @@ __decorate([
     __metadata("design:type", String)
 ], Org.prototype, "blockTime", void 0);
 exports.Org = Org;
+class Profile extends typegoose_1.Typegoose {
+}
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Profile.prototype, "worker", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Profile.prototype, "fullname", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", Array)
+], Profile.prototype, "entries", void 0);
+exports.Profile = Profile;

@@ -24,7 +24,7 @@ router.get("/:companyName", (req, res) => __awaiter(this, void 0, void 0, functi
 router.get("/:companyName/workEntries", (req, res) => __awaiter(this, void 0, void 0, function* () {
     const { companyName } = req.params;
     const ClaimTimeModel = new interfaces_1.ClaimTime().getModelForClass(interfaces_1.ClaimTime);
-    const result = yield ClaimTimeModel.find().select("-_id -__v");
+    const result = yield ClaimTimeModel.find({ org: companyName }).select("-_id -__v");
     res.send(result);
 }));
 exports.default = router;

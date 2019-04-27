@@ -5,7 +5,7 @@ export class ClaimTime extends Typegoose {
   worker: string;
 
   @prop()
-  dechours: number;
+  minutes: number;
 
   @prop()
   notes: string;
@@ -14,7 +14,7 @@ export class ClaimTime extends Typegoose {
   transactionId: string;
 
   @prop()
-  role: string;
+  org: string;
 
   @prop()
   reward: {
@@ -41,4 +41,15 @@ export class Org extends Typegoose {
 
   @prop()
   blockTime: string;
+}
+
+export class Profile extends Typegoose {
+  @prop()
+  worker: string;
+
+  @prop()
+  fullname?: string
+
+  @prop()
+  entries: ClaimTime[]
 }
