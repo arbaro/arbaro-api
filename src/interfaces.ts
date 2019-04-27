@@ -45,11 +45,18 @@ export class Org extends Typegoose {
 
 export class Profile extends Typegoose {
   @prop()
-  worker: string;
+  prof: string;
 
   @prop()
-  fullname?: string
+  friendly?: string
+
+  @prop()
+  about?: string
+
+  @prop()
+  pic?: string;
 
   @prop()
   entries: ClaimTime[]
 }
+

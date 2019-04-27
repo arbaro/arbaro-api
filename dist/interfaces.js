@@ -69,11 +69,19 @@ class Profile extends typegoose_1.Typegoose {
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", String)
-], Profile.prototype, "worker", void 0);
+], Profile.prototype, "prof", void 0);
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", String)
-], Profile.prototype, "fullname", void 0);
+], Profile.prototype, "friendly", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Profile.prototype, "about", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Profile.prototype, "pic", void 0);
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", Array)
