@@ -17,6 +17,7 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
     const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
     // Could return just this result
     const result = yield ClaimTimeModel.find({ worker }).select("-_id -__v");
+    console.log(result, 'is result');
     let entries = result;
     if (entries.length > 0) {
         // Extra code used to pull the friendly name of the organisation
@@ -40,12 +41,16 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
         // @ts-ignore
         entries = entriesWithFriendly;
     }
-    const profileInstance = yield ProfileModel.findOne({ prof: worker }).select("-_id -__v");
-    console.log(profileInstance);
-    // const profile = {
-    //     ...profileInstance,
-    //     entries: result
-    // }
+    let profileInstance = yield ProfileModel.findOne({ prof: worker }).select("-_id -__v");
+    if (!profileInstance) {
+        // @ts-ignore
+        profileInstance = {
+            prof: worker,
+            friendly: "",
+            about: "",
+            pic: "",
+        };
+    }
     profileInstance['entries'] = entries;
     res.send(profileInstance);
 }));

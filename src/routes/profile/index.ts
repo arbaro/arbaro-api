@@ -10,7 +10,7 @@ router.get("/:worker", async (req, res) => {
     const ProfileModel = new Profile().getModelForClass(Profile);
     // Could return just this result
     const result = await ClaimTimeModel.find({ worker }).select("-_id -__v");
-
+    console.log(result, 'is result')
     let entries = result
     if (entries.length > 0) {
         // Extra code used to pull the friendly name of the organisation
@@ -40,11 +40,17 @@ router.get("/:worker", async (req, res) => {
     }
 
 
-    const profileInstance = await ProfileModel.findOne({ prof: worker }).select("-_id -__v");
-    // const profile = {
-    //     ...profileInstance,
-    //     entries: result
-    // }
+    let profileInstance = await ProfileModel.findOne({ prof: worker }).select("-_id -__v");
+    if (!profileInstance) {
+                // @ts-ignore
+
+        profileInstance = {
+            prof: worker,
+            friendly: "",
+            about: "",
+            pic: "",
+        }
+    }
     profileInstance['entries'] = entries
     res.send(profileInstance);
 });
