@@ -17,7 +17,6 @@ router.get("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
     res.send(result);
 }));
 router.post("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    console.log(req.body.accounts, 'should be body');
     const { accounts } = req.body;
     const searchTerms = accounts.map(account => ({ prof: account }));
     const profiles = yield ProfileModel.find({ $or: searchTerms }).select("-_id -__v");

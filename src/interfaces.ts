@@ -58,5 +58,8 @@ export class Profile extends Typegoose {
 
   @prop()
   entries: ClaimTime[]
+
+  @prop()
+  git?: string
 }
 
