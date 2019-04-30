@@ -10,7 +10,7 @@ router.get("/:worker", async (req, res) => {
     const ProfileModel = new Profile().getModelForClass(Profile);
     // Could return just this result
     const result = await ClaimTimeModel.find({ worker }).select("-_id -__v");
-    
+
     let entries = result
     if (entries.length > 0) {
         // Extra code used to pull the friendly name of the organisation
@@ -21,18 +21,18 @@ router.get("/:worker", async (req, res) => {
         const orgs = await OrgModel.find({ $or: searchTerms }).select(
             "-_id -__v"
         );
-        
+
         // Compose a dictionary, orgName => orgFriendlyName
         const orgDictionary = {}
         orgs.forEach(org => orgDictionary[org.owner] = org.friendlyname)
-        
+
         // Destructure and restructure original data, funky mongoose stuff happens when mutating the objects
-        const entriesWithFriendly = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime}) => ({
+        const entriesWithFriendly = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime }) => ({
             worker,
             org,
             minutes,
             notes,
-            transactionId, reward, blockTime, 
+            transactionId, reward, blockTime,
             orgFriendly: orgDictionary[org]
         }))
         // @ts-ignore
@@ -42,8 +42,7 @@ router.get("/:worker", async (req, res) => {
 
     let profileInstance = await ProfileModel.findOne({ prof: worker }).select("-_id -__v");
     if (!profileInstance) {
-                // @ts-ignore
-
+        // @ts-ignore
         profileInstance = {
             prof: worker,
             friendly: "",
