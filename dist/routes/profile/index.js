@@ -17,7 +17,6 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
     const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
     // Could return just this result
     const result = yield ClaimTimeModel.find({ worker }).select("-_id -__v");
-    console.log(result, 'is result');
     let entries = result;
     if (entries.length > 0) {
         // Extra code used to pull the friendly name of the organisation
@@ -51,7 +50,7 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
             pic: "",
         };
     }
-    profileInstance['entries'] = entries;
+    profileInstance['entries'] = entries.reverse();
     res.send(profileInstance);
 }));
 exports.default = router;
