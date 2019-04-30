@@ -48,6 +48,7 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
             friendly: "",
             about: "",
             pic: "",
+            git: ""
         };
     }
     profileInstance['entries'] = entries.reverse();

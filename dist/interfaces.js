@@ -86,4 +86,8 @@ __decorate([
     typegoose_1.prop(),
     __metadata("design:type", Array)
 ], Profile.prototype, "entries", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Profile.prototype, "git", void 0);
 exports.Profile = Profile;
