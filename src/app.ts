@@ -6,6 +6,7 @@ import companiesRoute from "./routes/companies";
 import profileRoute from "./routes/profile";
 import profilesRoute from "./routes/profiles";
 import * as cors from "cors";
+import * as bodyParser from 'body-parser';
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, error =>
 );
 
 app.use(cors());
+app.use(bodyParser())
 app.use("/company", companyRoute);
 app.use("/companies", companiesRoute);
 app.use("/profile", profileRoute);

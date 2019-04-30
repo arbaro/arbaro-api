@@ -11,9 +11,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const interfaces_1 = require("../../interfaces");
 const router = express.Router();
+const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
 router.get("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
     const result = yield ProfileModel.find().select("-_id -__v");
     res.send(result);
+}));
+router.post("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req.body.accounts, 'should be body');
+    const { accounts } = req.body;
+    const searchTerms = accounts.map(account => ({ prof: account }));
+    const profiles = yield ProfileModel.find({ $or: searchTerms }).select("-_id -__v");
+    res.send(profiles);
 }));
 exports.default = router;
