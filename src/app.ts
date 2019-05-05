@@ -21,7 +21,7 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, error =>
 );
 
 app.use(cors());
-app.use(bodyParser())
+app.use(bodyParser());
 app.use("/company", companyRoute);
 app.use("/companies", companiesRoute);
 app.use("/profile", profileRoute);
