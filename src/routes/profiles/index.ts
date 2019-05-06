@@ -1,7 +1,5 @@
 import * as express from "express";
-import { Profile } from "../../interfaces";
-import { ProfileModel, ClaimTimeModel } from "../../models"
-
+import { ProfileModel } from "../../models"
 
 const router = express.Router();
 

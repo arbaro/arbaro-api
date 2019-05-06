@@ -17,8 +17,7 @@ router.get("/:worker", (req, res) => __awaiter(this, void 0, void 0, function* (
     const result = yield models_1.ProfileModel
         .findOne({ prof: worker })
         .populate({ path: 'entries', populate: { path: 'org', model: 'Org' } })
-        .populate('orgs')
-        .select('-_v -_id');
+        .populate('orgs');
     if (!result) {
         res.status(404).send();
         return;
