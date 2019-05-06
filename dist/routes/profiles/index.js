@@ -9,17 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const interfaces_1 = require("../../interfaces");
+const models_1 = require("../../models");
 const router = express.Router();
-const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
 router.get("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    const result = yield ProfileModel.find().select("-_id -__v");
+    const result = yield models_1.ProfileModel.find().select("-_id -__v");
     res.send(result);
 }));
 router.post("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
     const { accounts } = req.body;
     const searchTerms = accounts.map(account => ({ prof: account }));
-    const profiles = yield ProfileModel.find({ $or: searchTerms }).select("-_id -__v");
+    const profiles = yield models_1.ProfileModel.find({ $or: searchTerms }).select("-_id -__v");
     res.send(profiles);
 }));
 exports.default = router;

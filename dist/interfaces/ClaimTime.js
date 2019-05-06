@@ -10,68 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typegoose_1 = require("typegoose");
-class Org extends typegoose_1.Typegoose {
-}
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Org.prototype, "owner", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Org.prototype, "tokensym", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Org.prototype, "tokencon", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Org.prototype, "friendlyname", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Org.prototype, "blockTime", void 0);
-exports.Org = Org;
-class Profile extends typegoose_1.Typegoose {
-}
-__decorate([
-    typegoose_1.prop({ unique: true }),
-    __metadata("design:type", String)
-], Profile.prototype, "prof", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Profile.prototype, "friendly", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Profile.prototype, "about", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Profile.prototype, "pic", void 0);
-__decorate([
-    typegoose_1.prop({ ref: Org, unique: true }),
-    __metadata("design:type", Array)
-], Profile.prototype, "orgs", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", Boolean)
-], Profile.prototype, "isOrg", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], Profile.prototype, "git", void 0);
-exports.Profile = Profile;
+const index_1 = require("./index");
 class ClaimTime extends typegoose_1.Typegoose {
 }
 __decorate([
-    typegoose_1.prop({ ref: Profile }),
+    typegoose_1.prop({ ref: index_1.Profile }),
     __metadata("design:type", Object)
 ], ClaimTime.prototype, "prof", void 0);
 __decorate([
-    typegoose_1.prop({ ref: Org }),
+    typegoose_1.prop({ ref: index_1.Org }),
     __metadata("design:type", Object)
 ], ClaimTime.prototype, "org", void 0);
 __decorate([

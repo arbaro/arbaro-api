@@ -1,5 +1,5 @@
 import * as express from "express";
-import { Org } from "../../interfaces";
+import { OrgModel } from "../../models"
 
 const router = express.Router();
 
@@ -8,7 +8,6 @@ const router = express.Router();
  * @constructor
  */
 router.get("/", async (req, res) => {
-  const OrgModel = new Org().getModelForClass(Org);
   const result = await OrgModel.find().select("-_id -__v");
   res.send(result);
 });

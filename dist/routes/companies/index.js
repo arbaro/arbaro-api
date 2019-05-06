@@ -9,15 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const interfaces_1 = require("../../interfaces");
+const models_1 = require("../../models");
 const router = express.Router();
 /**
  * Represents a book.
  * @constructor
  */
 router.get("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    const OrgModel = new interfaces_1.Org().getModelForClass(interfaces_1.Org);
-    const result = yield OrgModel.find().select("-_id -__v");
+    const result = yield models_1.OrgModel.find().select("-_id -__v");
     res.send(result);
 }));
 exports.default = router;

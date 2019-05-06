@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;routes/profile/index&quot; | backend</title>
+	<title>Handler | backend</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,38 +56,92 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_routes_profile_index_.html">&quot;routes/profile/index&quot;</a>
+					<a href="../modules/_interfaces_index_.html">&quot;interfaces/index&quot;</a>
+				</li>
+				<li>
+					<a href="_interfaces_index_.handler.html">Handler</a>
 				</li>
 			</ul>
-			<h1>External module &quot;routes/profile/index&quot;</h1>
+			<h1>Interface Handler</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Handler</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Variables</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_routes_profile_index_.html#router" class="tsd-kind-icon">router</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_index_.handler.html#actiontype" class="tsd-kind-icon">action<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_index_.handler.html#apply" class="tsd-kind-icon">apply</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_index_.handler.html#versionname" class="tsd-kind-icon">version<wbr>Name</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-					<a name="router" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> router</h3>
-					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol"> =&nbsp;express.Router()</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="actiontype" class="tsd-anchor"></a>
+					<h3>action<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">action<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/arbaro/arbaro-api/blob/804a4a8/src/routes/profile/index.ts#L4">routes/profile/index.ts:4</a></li>
+							<li>Defined in interfaces/index.ts:31</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="apply" class="tsd-anchor"></a>
+					<h3>apply</h3>
+					<div class="tsd-signature tsd-kind-icon">apply<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interfaces/index.ts:32</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><a href="_interfaces_index_.generictx.html" class="tsd-signature-type">GenericTx</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>payload: <a href="_interfaces_index_.generictx.html" class="tsd-signature-type">GenericTx</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="versionname" class="tsd-anchor"></a>
+					<h3>version<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">version<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interfaces/index.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -100,53 +154,95 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_app_.html">"app"</a>
+						<a href="../modules/_app_.html">"app"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_interfaces_claimtime_.html">"interfaces/<wbr>Claim<wbr>Time"</a>
+						<a href="../modules/_interfaces_claimtime_.html">"interfaces/<wbr>Claim<wbr>Time"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_interfaces_org_.html">"interfaces/<wbr>Org"</a>
+						<a href="../modules/_interfaces_org_.html">"interfaces/<wbr>Org"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_interfaces_profile_.html">"interfaces/<wbr>Profile"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_interfaces_index_.html">"interfaces/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_models_.html">"models"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routes_companies_index_.html">"routes/companies/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routes_company_index_.html">"routes/company/index"</a>
+						<a href="../modules/_interfaces_profile_.html">"interfaces/<wbr>Profile"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_routes_profile_index_.html">"routes/profile/index"</a>
+						<a href="../modules/_interfaces_index_.html">"interfaces/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_routes_profiles_index_.html">"routes/profiles/index"</a>
+						<a href="../modules/_models_.html">"models"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_schemas_claimtime_.html">"schemas/<wbr>Claim<wbr>Time"</a>
+						<a href="../modules/_routes_companies_index_.html">"routes/companies/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_schemas_org_.html">"schemas/<wbr>Org"</a>
+						<a href="../modules/_routes_company_index_.html">"routes/company/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_schemas_profile_.html">"schemas/<wbr>Profile"</a>
+						<a href="../modules/_routes_profile_index_.html">"routes/profile/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_schemas_index_.html">"schemas/index"</a>
+						<a href="../modules/_routes_profiles_index_.html">"routes/profiles/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_schemas_claimtime_.html">"schemas/<wbr>Claim<wbr>Time"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_schemas_org_.html">"schemas/<wbr>Org"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_schemas_profile_.html">"schemas/<wbr>Profile"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_schemas_index_.html">"schemas/index"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="_routes_profile_index_.html#router" class="tsd-kind-icon">router</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.actiontraceinput.html" class="tsd-kind-icon">Action<wbr>Trace<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.authorization.html" class="tsd-kind-icon">Authorization</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.blockmeta.html" class="tsd-kind-icon">Block<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.data.html" class="tsd-kind-icon">Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_interfaces_index_.generictx.html" class="tsd-kind-icon">Generic<wbr>Tx</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.handler.html" class="tsd-kind-icon">Handler</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_index_.handler.html#actiontype" class="tsd-kind-icon">action<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_index_.handler.html#apply" class="tsd-kind-icon">apply</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_index_.handler.html#versionname" class="tsd-kind-icon">version<wbr>Name</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.claimtimeaction.html" class="tsd-kind-icon">claimtime<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.upsertorgaction.html" class="tsd-kind-icon">upsertorg<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.upsertprofaction.html" class="tsd-kind-icon">upsertprof<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_index_.upsertroleaction.html" class="tsd-kind-icon">upsertrole<wbr>Action</a>
 					</li>
 				</ul>
 			</nav>

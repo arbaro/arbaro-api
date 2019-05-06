@@ -1,8 +1,9 @@
 import * as express from "express";
 import { Profile } from "../../interfaces";
+import { ProfileModel, ClaimTimeModel } from "../../models"
+
 
 const router = express.Router();
-const ProfileModel = new Profile().getModelForClass(Profile);
 
 router.get("/", async (req, res) => {
   const result = await ProfileModel.find().select("-_id -__v");
