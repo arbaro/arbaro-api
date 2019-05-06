@@ -18,27 +18,12 @@ router.get("/:companyName", async (req, res) => {
 router.get("/:companyName/workEntries", async (req, res) => {
   const { companyName } = req.params;
 
-  const ProfileModel = new Profile().getModelForClass(Profile);
+  const OrgModel = new Org().getModelForClass(Org);
   const ClaimTimeModel = new ClaimTime().getModelForClass(ClaimTime);
-  const result = await ClaimTimeModel.find({ org: companyName }).select("-_id -__v");
+  const org = await OrgModel.findOne({ owner: companyName});
+  const result = await ClaimTimeModel.find({ org: org._id }).populate('prof').select("-_id -__v");
 
-  const uniqueUsers = result.map(workEntry => workEntry.worker).filter((value, index, self) => self.indexOf(value) === index)
-  const searchTerms = uniqueUsers.map(accountName => ({ prof: accountName }))
-  const profiles = await ProfileModel.find({ $or: searchTerms }).select("-_id -__v");
-  const dictionary = profiles.reduce((acc, item) => {
-     return {...acc, [item.prof] : item}
-  }, {})
-
-  const data = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime }) => {
-    if (dictionary[worker].pic) {
-      const { pic, friendly } = dictionary[worker]
-      return ({ worker, org, minutes, notes, transactionId, reward, blockTime, pic, friendly })
-    } else {
-      return { worker, org, minutes, notes, transactionId, reward, blockTime }
-    }
-  })
-
-  res.send(data);
+  res.send(result);
 
 
 });

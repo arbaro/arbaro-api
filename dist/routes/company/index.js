@@ -19,24 +19,10 @@ router.get("/:companyName", (req, res) => __awaiter(this, void 0, void 0, functi
 }));
 router.get("/:companyName/workEntries", (req, res) => __awaiter(this, void 0, void 0, function* () {
     const { companyName } = req.params;
-    const ProfileModel = new interfaces_1.Profile().getModelForClass(interfaces_1.Profile);
+    const OrgModel = new interfaces_1.Org().getModelForClass(interfaces_1.Org);
     const ClaimTimeModel = new interfaces_1.ClaimTime().getModelForClass(interfaces_1.ClaimTime);
-    const result = yield ClaimTimeModel.find({ org: companyName }).select("-_id -__v");
-    const uniqueUsers = result.map(workEntry => workEntry.worker).filter((value, index, self) => self.indexOf(value) === index);
-    const searchTerms = uniqueUsers.map(accountName => ({ prof: accountName }));
-    const profiles = yield ProfileModel.find({ $or: searchTerms }).select("-_id -__v");
-    const dictionary = profiles.reduce((acc, item) => {
-        return Object.assign({}, acc, { [item.prof]: item });
-    }, {});
-    const data = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime }) => {
-        if (dictionary[worker].pic) {
-            const { pic, friendly } = dictionary[worker];
-            return ({ worker, org, minutes, notes, transactionId, reward, blockTime, pic, friendly });
-        }
-        else {
-            return { worker, org, minutes, notes, transactionId, reward, blockTime };
-        }
-    });
-    res.send(data);
+    const org = yield OrgModel.findOne({ owner: companyName });
+    const result = yield ClaimTimeModel.find({ org: org._id }).populate('prof').select("-_id -__v");
+    res.send(result);
 }));
 exports.default = router;

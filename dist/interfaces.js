@@ -10,37 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typegoose_1 = require("typegoose");
-class ClaimTime extends typegoose_1.Typegoose {
-}
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], ClaimTime.prototype, "worker", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", Number)
-], ClaimTime.prototype, "minutes", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], ClaimTime.prototype, "notes", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], ClaimTime.prototype, "transactionId", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], ClaimTime.prototype, "org", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", Object)
-], ClaimTime.prototype, "reward", void 0);
-__decorate([
-    typegoose_1.prop(),
-    __metadata("design:type", String)
-], ClaimTime.prototype, "blockTime", void 0);
-exports.ClaimTime = ClaimTime;
 class Org extends typegoose_1.Typegoose {
 }
 __decorate([
@@ -67,7 +36,7 @@ exports.Org = Org;
 class Profile extends typegoose_1.Typegoose {
 }
 __decorate([
-    typegoose_1.prop(),
+    typegoose_1.prop({ unique: true }),
     __metadata("design:type", String)
 ], Profile.prototype, "prof", void 0);
 __decorate([
@@ -83,11 +52,46 @@ __decorate([
     __metadata("design:type", String)
 ], Profile.prototype, "pic", void 0);
 __decorate([
-    typegoose_1.prop(),
+    typegoose_1.prop({ ref: Org, unique: true }),
     __metadata("design:type", Array)
-], Profile.prototype, "entries", void 0);
+], Profile.prototype, "orgs", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", Boolean)
+], Profile.prototype, "isOrg", void 0);
 __decorate([
     typegoose_1.prop(),
     __metadata("design:type", String)
 ], Profile.prototype, "git", void 0);
 exports.Profile = Profile;
+class ClaimTime extends typegoose_1.Typegoose {
+}
+__decorate([
+    typegoose_1.prop({ ref: Profile }),
+    __metadata("design:type", Object)
+], ClaimTime.prototype, "prof", void 0);
+__decorate([
+    typegoose_1.prop({ ref: Org }),
+    __metadata("design:type", Object)
+], ClaimTime.prototype, "org", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", Number)
+], ClaimTime.prototype, "minutes", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], ClaimTime.prototype, "notes", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], ClaimTime.prototype, "transactionId", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", Object)
+], ClaimTime.prototype, "reward", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], ClaimTime.prototype, "blockTime", void 0);
+exports.ClaimTime = ClaimTime;

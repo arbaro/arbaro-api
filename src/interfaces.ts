@@ -1,30 +1,4 @@
-import { prop, Typegoose, ModelType, InstanceType } from "typegoose";
-
-export class ClaimTime extends Typegoose {
-  @prop()
-  worker: string;
-
-  @prop()
-  minutes: number;
-
-  @prop()
-  notes: string;
-
-  @prop()
-  transactionId: string;
-
-  @prop()
-  org: string;
-
-  @prop()
-  reward: {
-    amount: number;
-    symbol: string;
-  };
-
-  @prop()
-  blockTime: string;
-}
+import { prop, Typegoose, Ref, InstanceType } from "typegoose";
 
 export class Org extends Typegoose {
   @prop()
@@ -44,22 +18,56 @@ export class Org extends Typegoose {
 }
 
 export class Profile extends Typegoose {
-  @prop()
+  @prop({ unique: true })
   prof: string;
 
   @prop()
-  friendly?: string
+  friendly?: string;
 
   @prop()
-  about?: string
+  about?: string;
 
   @prop()
   pic?: string;
 
-  @prop()
-  entries: ClaimTime[]
+  @prop({ ref: Org, unique: true })
+  orgs?: Ref<Org>[];
+
+  @prop({ ref: ClaimTime })
+  entries: Ref<ClaimTime>[];
 
   @prop()
-  git?: string
+  isOrg: boolean;
+
+
+  @prop()
+  git?: string;
+}
+
+export class ClaimTime extends Typegoose {
+
+  @prop({ ref: Profile })
+  prof: Ref<Profile>;
+
+  @prop({ ref: Org })
+  org: Ref<Org>;
+
+  @prop()
+  minutes: number;
+
+  @prop()
+  notes: string;
+
+  @prop()
+  transactionId: string;
+
+  @prop()
+  reward: {
+    amount: number;
+    symbol: string;
+  };
+
+  @prop()
+  blockTime: string;
 }
 

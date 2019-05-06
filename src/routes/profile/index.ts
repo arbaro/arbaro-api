@@ -8,51 +8,59 @@ router.get("/:worker", async (req, res) => {
 
     const ClaimTimeModel = new ClaimTime().getModelForClass(ClaimTime);
     const ProfileModel = new Profile().getModelForClass(Profile);
-    // Could return just this result
-    const result = await ClaimTimeModel.find({ worker }).select("-_id -__v");
+    // // Could return just this result
+    // const result = await ClaimTimeModel.find({ worker }).select("-_id -__v");
 
-    let entries = result
-    if (entries.length > 0) {
-        // Extra code used to pull the friendly name of the organisation
-        // Get unique organisations out of the work entries and pull their data
-        const uniqueOrgs = result.map(workEntry => workEntry.org).filter((value, index, self) => self.indexOf(value) === index)
-        const searchTerms = uniqueOrgs.map(orgName => ({ owner: orgName }))
-        const OrgModel = new Org().getModelForClass(Org);
-        const orgs = await OrgModel.find({ $or: searchTerms }).select(
-            "-_id -__v"
-        );
-
-        // Compose a dictionary, orgName => orgFriendlyName
-        const orgDictionary = {}
-        orgs.forEach(org => orgDictionary[org.owner] = org.friendlyname)
-
-        // Destructure and restructure original data, funky mongoose stuff happens when mutating the objects
-        const entriesWithFriendly = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime }) => ({
-            worker,
-            org,
-            minutes,
-            notes,
-            transactionId, reward, blockTime,
-            orgFriendly: orgDictionary[org]
-        }))
-        // @ts-ignore
-        entries = entriesWithFriendly
+    const result = await ProfileModel.findOne({ prof: worker }).select("-_id -__v")
+    if(!result) {
+        res.status(404).send()
+        return;
     }
+    const workEntries = await ClaimTimeModel.find({ worker: result._id }).select("-_id -__v")
+    res.send(workEntries)
+    
+    // let entries = result
+    // if (entries.length > 0) {
+    //     // Extra code used to pull the friendly name of the organisation
+    //     // Get unique organisations out of the work entries and pull their data
+    //     const uniqueOrgs = result.map(workEntry => workEntry.org).filter((value, index, self) => self.indexOf(value) === index)
+    //     const searchTerms = uniqueOrgs.map(orgName => ({ owner: orgName }))
+    //     const OrgModel = new Org().getModelForClass(Org);
+    //     const orgs = await OrgModel.find({ $or: searchTerms }).select(
+    //         "-_id -__v"
+    //     );
+
+    //     // Compose a dictionary, orgName => orgFriendlyName
+    //     const orgDictionary = {}
+    //     orgs.forEach(org => orgDictionary[org.owner] = org.friendlyname)
+
+    //     // Destructure and restructure original data, funky mongoose stuff happens when mutating the objects
+    //     const entriesWithFriendly = result.map(({ worker, org, minutes, notes, transactionId, reward, blockTime }) => ({
+    //         worker,
+    //         org,
+    //         minutes,
+    //         notes,
+    //         transactionId, reward, blockTime,
+    //         orgFriendly: orgDictionary[org]
+    //     }))
+    //     // @ts-ignore
+    //     entries = entriesWithFriendly
+    // }
 
 
-    let profileInstance = await ProfileModel.findOne({ prof: worker }).select("-_id -__v");
-    if (!profileInstance) {
-        // @ts-ignore
-        profileInstance = {
-            prof: worker,
-            friendly: "",
-            about: "",
-            pic: "",
-            git: ""
-        }
-    }
-    profileInstance['entries'] = entries.reverse()
-    res.send(profileInstance);
+    // let profileInstance = await ProfileModel.findOne({ prof: worker }).select("-_id -__v");
+    // if (!profileInstance) {
+    //     // @ts-ignore
+    //     profileInstance = {
+    //         prof: worker,
+    //         friendly: "",
+    //         about: "",
+    //         pic: "",
+    //         git: ""
+    //     }
+    // }
+    // profileInstance['entries'] = entries.reverse()
+    res.send(result);
 });
 
 export default router;
