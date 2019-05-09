@@ -18,6 +18,10 @@ router.get("/:companyName", async (req, res) => {
 router.get("/:companyName/workEntries", async (req, res) => {
   const { companyName } = req.params;
   const org = await OrgModel.findOne({ owner: companyName});
+  if (!org) {
+    res.send([])
+    return
+  }
   const result = await ClaimTimeModel.find({ org: org._id }).populate('prof').select("-_id -__v");
 
   res.send(result);
