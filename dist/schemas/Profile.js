@@ -9,6 +9,6 @@ exports.Profile = new mongoose.Schema({
     pic: String,
     orgs: [{ type: ObjectId, ref: 'Org' }],
     entries: [{ type: ObjectId, ref: 'ClaimTime' }],
-    isOrg: Boolean,
+    isOrg: { type: Boolean, default: false },
     git: String
 });

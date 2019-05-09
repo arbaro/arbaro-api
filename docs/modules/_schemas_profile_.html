@@ -88,17 +88,17 @@
 					<div class="tsd-signature tsd-kind-icon">Object<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ObjectId</span><span class="tsd-signature-symbol"> =&nbsp;mongoose.Schema.Types.ObjectId</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/arbaro/arbaro-api/blob/fb28545/src/schemas/Profile.ts#L2">schemas/Profile.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/arbaro/arbaro-api/blob/7f2fd7d/src/schemas/Profile.ts#L2">schemas/Profile.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="profile" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Profile</h3>
-					<div class="tsd-signature tsd-kind-icon">Profile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new mongoose.Schema({prof: { type: String, required: true },friendly: String,about: String,pic: String,orgs: [{ type: ObjectId, ref: &#x27;Org&#x27; }],entries: [{ type: ObjectId, ref: &#x27;ClaimTime&#x27; }],isOrg: Boolean,git: String})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Profile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new mongoose.Schema({prof: { type: String, required: true },friendly: String,about: String,pic: String,orgs: [{ type: ObjectId, ref: &#x27;Org&#x27; }],entries: [{ type: ObjectId, ref: &#x27;ClaimTime&#x27; }],isOrg: { type: Boolean, default: false },git: String})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/arbaro/arbaro-api/blob/fb28545/src/schemas/Profile.ts#L4">schemas/Profile.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/arbaro/arbaro-api/blob/7f2fd7d/src/schemas/Profile.ts#L4">schemas/Profile.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
